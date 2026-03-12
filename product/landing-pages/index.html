@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion Project Tracker Pro - Manage Projects Like a Senior PM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background-color: #ffffff;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d3436;
+        }
+
+        nav a {
+            color: #2d3436;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2d3436;
+            line-height: 1.2;
+        }
+
+        .hero .subheadline {
+            font-size: 20px;
+            color: #636e72;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            border-radius: 12px;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b2bec3;
+            font-size: 16px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #0066cc;
+            color: #ffffff;
+            padding: 14px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #0052a3;
+            transform: translateY(-2px);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .features h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #2d3436;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #2d3436;
+        }
+
+        .feature-item p {
+            color: #636e72;
+            font-size: 14px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #2d3436;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            border: 2px solid #e8eef5;
+            border-radius: 12px;
+            padding: 60px 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .price-period {
+            color: #636e72;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card p {
+            color: #636e72;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .testimonials h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            color: #2d3436;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial-text {
+            color: #636e72;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2d3436;
+            font-size: 14px;
+        }
+
+        .testimonial-role {
+            color: #b2bec3;
+            font-size: 12px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background-color: #2d3436;
+            color: #ffffff;
+        }
+
+        .footer-content {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-content p {
+            color: #b2bec3;
+            margin-bottom: 20px;
+        }
+
+        .email-signup {
+            display: flex;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto 30px;
+        }
+
+        .email-signup input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .email-signup button {
+            padding: 12px 24px;
+            background-color: #0066cc;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .email-signup button:hover {
+            background-color: #0052a3;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #636e72;
+        }
+
+        .footer-links a {
+            color: #b2bec3;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #0066cc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subheadline {
+                font-size: 16px;
+            }
+
+            .features h2,
+            .pricing h2,
+            .testimonials h2 {
+                font-size: 28px;
+            }
+
+            .price {
+                font-size: 36px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .email-signup {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Notion Tracker Pro</div>
+                <nav>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#testimonials">Testimonials</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Manage Projects Like a Senior PM</h1>
+            <p class="subheadline">Everything you need in one Notion workspace</p>
+            <div class="hero-image">Hero Image Placeholder</div>
+            <a href="https://gumroad.com/l/notion-tracker-pro" class="cta-button">Get Notion Tracker Pro</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>📊 Timeline & Gantt Views</h3>
+                    <p>Visualize your entire project timeline with interactive Gantt charts and timeline views for better planning.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🔗 Dependency Tracking</h3>
+                    <p>Map task dependencies and identify critical paths to keep your projects on schedule.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>👥 Resource Allocation</h3>
+                    <p>Assign team members, track workload, and balance capacity across your projects effortlessly.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📈 Progress Dashboards</h3>
+                    <p>Real-time dashboards show project health, burndown charts, and key metrics at a glance.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📧 Auto Status Reports</h3>
+                    <p>Generate and send automated status reports to stakeholders without lifting a finger.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Simple Pricing</h2>
+            <div class="pricing-card">
+                <div class="price">$29</div>
+                <div class="price-period">one-time purchase</div>
+                <p>Get lifetime access to Notion Project Tracker Pro with all features included.</p>
+                <a href="https://gumroad.com/l/notion-tracker-pro" class="cta-button">Buy Now on Gumroad</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>What Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"This completely transformed how our team manages projects. We've cut planning time in half."</div>
+                    <div class="testimonial-author">Sarah Chen</div>
+                    <div class="testimonial-role">Product Manager</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"Finally, a Notion template that actually works like professional PM software. Highly recommend."</div>
+                    <div class="testimonial-author">Marcus Johnson</div>
+                    <div class="testimonial-role">Engineering Lead</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"The dependency tracking alone is worth the price. Our projects run so much smoother now."</div>
+                    <div class="testimonial-author">Elena Rodriguez</div>
+                    <div class="testimonial-role">Operations Director</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Ready to level up your project management?</h3>
+                <p>Join hundreds of teams using Notion Tracker Pro</p>
+                <div class="email-signup">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Notify Me</button>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+                <a href="https://gumroad.com/l/notion-tracker-pro">Buy on Gumroad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Email signup handler
+        document
+</body>
+</html>
