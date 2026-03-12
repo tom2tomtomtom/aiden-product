@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion CRM Template Pro - Manage Leads Without Chaos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            color: #1a1a1a;
+        }
+        
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #1a1a1a;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #333;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #1a1a1a;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #1a1a1a;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border-radius: 8px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background: white;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature {
+            padding: 30px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #1a1a1a;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .feature p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .testimonial-text {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+        
+        .testimonial-role {
+            font-size: 13px;
+            color: #999;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: white;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+        
+        .pricing-table th,
+        .pricing-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 14px;
+        }
+        
+        .pricing-table th {
+            background: #fafafa;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-feature {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+        
+        .check {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        .cross {
+            color: #ccc;
+        }
+        
+        /* Email Signup */
+        .signup {
+            padding: 80px 0;
+        }
+        
+        .signup-container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .signup h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+        
+        .signup p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+        
+        .email-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .email-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .email-form input:focus {
+            outline: none;
+            border-color: #1a1a1a;
+        }
+        
+        .email-form button {
+            padding: 12px 32px;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .email-form button:hover {
+            background: #333;
+        }
+        
+        .privacy-note {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            nav a {
+                margin-left: 0;
+            }
+            
+            .pricing-table {
+                font-size: 12px;
+            }
+            
+            .pricing-table th,
+            .pricing-table td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">Notion CRM Pro</div>
+            <div>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#testimonials">Reviews</a>
+            </div>
+        </nav>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Manage 100+ leads in Notion without spreadsheet chaos</h1>
+            <p>A complete CRM template built for Notion. Track contacts, pipeline stages, deals, emails, and activity—all in one place. No coding required.</p>
+            <div class="cta-buttons">
+                <a href="https://gumroad.com" class="btn btn-primary">Buy Now on Gumroad</a>
+                <a href="#signup" class="btn btn-secondary">See Demo</a>
+            </div>
+            <div class="hero-image">Product screenshot placeholder</div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <h2 class="section-title">Core Features</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>Contact Database</h3>
+                    <p>Store unlimited contacts with custom fields for company, role, phone, email, and notes. Filter and sort instantly.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>Pipeline Stages</h3>
+                    <p>Visualize your sales funnel with kanban-style pipeline. Drag deals between stages. See conversion rates at a glance.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>Deal Tracking</h3>
+                    <p>Track deal value, expected close date, and probability. Get alerts on stalled deals. Forecast revenue by quarter.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>Email Log</h3>
+                    <p>Keep every email thread attached to the right contact. Never lose context. Search across all communications instantly.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>Activity Timeline</h3>
+                    <p>Auto-log calls, meetings, and emails. See the complete history of every interaction with each contact.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"></div>
+                    <h3>Reporting</h3>
+                    <p>Pre-built dashboards show pipeline health, win rates, and team performance. Export reports as PDF.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <h2 class="section-title">What Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">"This template saved us from Pipedrive. We're managing 150+ leads without paying $99/month. Notion does everything we need."</div>
+                    <div class="testimonial-author">Sarah Chen</div>
+                    <div class="testimonial-role">Sales Director, TechStart</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"The email log feature is a game-changer. We finally have one source of truth for every customer conversation. No more lost context."</div>
+                    <div class="testimonial-author">Marcus Rodriguez</div>
+                    <div class="testimonial-role">Founder, Growth Agency</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Set it up in 20 minutes. The template is so well-designed that my team immediately understood how to use it. No training needed."</div>
+                    <div class="testimonial-author">Emily Watson</div>
+                    <div class="testimonial-role">Operations Manager, B2B SaaS</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Comparison -->
+        <section class="pricing" id="pricing">
+            <h2 class="section-title">Compare to Alternatives</h2>
+            <table class="pricing-table">
+
+</body>
+</html>
