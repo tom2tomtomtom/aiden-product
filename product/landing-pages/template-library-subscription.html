@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Library Subscription - Premium Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">TemplateHub</div>
+            <div class="hidden md:flex gap-8">
+                <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
+                <a href="#pricing" class="text-gray-600 hover:text-gray-900">Pricing</a>
+                <a href="#faq" class="text-gray-600 hover:text-gray-900">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
+                Unlimited Template Access
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Get instant access to our entire template library. New professional templates added every month. Priority support included.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#subscribe" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition">
+                    Start Free Trial
+                </a>
+                <a href="#features" class="px-8 py-4 border-2 border-gray-300 text-gray-900 rounded-lg font-semibold hover:border-gray-400 transition">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">
+                What You Get
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card p-8 border border-gray-200 rounded-xl">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Complete Library</h3>
+                    <p class="text-gray-600">Access to 500+ professionally designed templates across all categories. Landing pages, email campaigns, social media, presentations, and more.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card p-8 border border-gray-200 rounded-xl">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Monthly New Templates</h3>
+                    <p class="text-gray-600">Fresh templates delivered to your inbox every month. Stay ahead of design trends with curated, seasonal, and trending templates.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card p-8 border border-gray-200 rounded-xl">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Priority Support</h3>
+                    <p class="text-gray-600">Direct access to our support team. Get help customizing templates, technical questions, and design advice within 24 hours.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card p-8 border border-gray-200 rounded-xl">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fully Customizable</h3>
+                    <p class="text-gray-600">All templates come with editable source files. Customize colors, fonts, content, and layouts to match your brand perfectly.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card p-8 border border-gray-200 rounded-xl">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">All Formats</h3>
+                    <p class="text-gray-600">Templates available in Figma, Adobe XD, Sketch, HTML/CSS, and more. Work with your preferred design tools.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card p-8 border border-gray-200 rounded-xl">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial License</h3>
+                    <p class="text-gray-600">Use templates for client work and commercial projects. No restrictions on how you use or modify templates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">
+                Simple, Transparent Pricing
+            </h2>
+            <p class="text-center text-gray-600 mb-16 text-lg">
+                One plan. Everything included. Cancel anytime.
+            </p>
+
+            <div class="bg-white rounded-2xl border-2 border-purple-600 p-8 md:p-12 shadow-lg">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-2">Template Library Pro</h3>
+                    <p class="text-gray-600">Everything you need to build faster</p>
+                </div>
+
+                <div class="text-center mb-8">
+                    <div class="text-5xl font-bold text-gray-900 mb-2">
+                        $19<span class="text-2xl text-gray-600">/month</span>
+                    </div>
+                    <p class="text-gray-600">Billed monthly. Cancel anytime.</p>
+                </div>
+
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-gray-700">
+                        <span class="text-green-500 mr-3 text-xl">✓</span>
+                        500+ professional templates
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                        <span class="text-green-500 mr-3 text-xl">✓</span>
+                        New templates every month
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                        <span class="text-green-500 mr-3 text-xl">✓</span>
+                        Priority email support (24hr response)
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                        <span class="text-green-500 mr-3 text-xl">✓</span>
+                        All file formats (Figma, XD, Sketch, HTML)
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                        <span class="text-green-500 mr-3 text-xl">✓</span>
+                        Commercial license included
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                        <span class="text-green-500 mr-3 text-xl">✓</span>
+                        Lifetime access to downloaded templates
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                        <span class="text-green-500 mr-3 text-xl">✓</span>
+                        Exclusive subscriber-only templates
+                    </li>
+                </ul>
+
+                <a href="#subscribe" class="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition text-center text-lg">
+                    Start Your Free Trial
+                </a>
+                <p class="text-center text-gray-600 text-sm mt-4">
+                    7-day free trial. No credit card required.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-gray-600 font-semibold mb-8">Trusted by 5,000+ designers and creators</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-gray-900">4.9★</div>
+                    <p class="text-gray-600 text-sm">Average rating</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-gray-900">500+</div>
+                    <p class="text-gray-600 text-sm">Templates</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-gray-900">5,000+</div>
+                    <p class="text-gray-600 text-sm">Active users</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-gray-900">24hr</div>
+                    <p class="text-gray-600 text-sm">Support response</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-900">
+                Frequently Asked Questions
+            </h2>
+
+            <div class="space-y-6">
+                <details class="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer group">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        Can I use templates for client projects?
+                        <span class="text-gray-400 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4">Yes! All templates include a commercial license. You can use them for client work, commercial projects, and resell designs built with our templates.</p>
+                </details>
+
+                <details class="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer group">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        What happens if I cancel?
+                        <span class="text-gray-400 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4">You keep all templates you've downloaded. Your subscription simply ends and you won't be charged again. No hidden fees or penalties.</p>
+                </details>
+
+                <details class="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer group">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        Do you offer refunds?
+                        <span class="text-gray-400 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4">Yes. If you're not satisfied within 7 days, we'll refund your money. No questions asked.</p>
+                </details>
+
+                <details class="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer group">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        What file formats are included?
+                        <span class="text-gray-400 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4">Templates are available in Figma, Adobe XD, Sketch, HTML/CSS, and Webflow. Some templates are available in all formats, others in specific formats based on their design.</p>
+                </details>
+
+                <details class="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer group">
+                    <summary class="font-semibold text-gray-900 flex justify-between items-center">
+                        How often are new templates added?
+                        <span class="text-gray-400 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4">We add 15-20 new templates every month.
+</body>
+</html>
