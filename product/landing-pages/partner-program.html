@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Program - Grow Together</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 14px 40px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            padding: 80px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .benefit-card {
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .benefit-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .mechanics {
+            background: #f5f5f5;
+            padding: 60px 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .mechanics h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .step {
+            background: white;
+            padding: 30px;
+            border-radius: 6px;
+            text-align: center;
+            border-top: 3px solid #667eea;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .step h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .dashboard-preview {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .dashboard-header {
+            background: #f9f9f9;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-header h3 {
+            color: #1a1a1a;
+            font-size: 18px;
+        }
+
+        .login-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        .dashboard-content {
+            padding: 40px;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .referral-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .referral-table thead {
+            background: #f0f0f0;
+        }
+
+        .referral-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #1a1a1a;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .referral-table td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+        }
+
+        .status-active {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .secondary-cta {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .secondary-cta:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .referral-table {
+                font-size: 14px;
+            }
+
+            .referral-table th,
+            .referral-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Partner Program</h1>
+            <p>Grow your revenue while helping others succeed. Join our thriving partner ecosystem.</p>
+            <button class="cta-button" onclick="scrollToSignup()">Apply Now</button>
+        </div>
+    </header>
+
+    <!-- Benefits Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Why Partner With Us?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Competitive Commissions</h3>
+                    <p>Earn 20% recurring commission on every referral. Your earnings grow as your partners grow. No caps, no limits.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Marketing Support</h3>
+                    <p>Co-branded assets, case studies, and dedicated marketing resources to help you promote effectively.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Dedicated Partner Manager</h3>
+                    <p>Get a real person in your corner. Strategy sessions, deal support, and priority assistance whenever you need it.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Real-Time Tracking</h3>
+                    <p>Monitor referrals, conversions, and earnings in real-time. Transparent reporting you can trust.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Partner Community</h3>
+                    <p>Connect with other successful partners. Share strategies, collaborate, and grow together.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Fast Payouts</h3>
+                    <p>Get paid monthly. No delays, no complications. Direct deposit to your account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Co-Promotion Mechanics -->
+    <section class="section">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="mechanics">
+                <h3>Co-Promotion Mechanics</h3>
+                <div class="flow-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Apply & Onboard</h4>
+                        <p>Submit your application. We review and get you set up in 48 hours with your unique partner dashboard.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Get Your Link</h4>
+                        <p>Receive your unique referral link and co-branded marketing assets ready to share.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Promote & Refer</h4>
+                        <p>Share with your network. Every click, signup, and conversion is tracked automatically.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>Earn Commission</h4>
+                        <p>Earn 20% recurring commission. Get paid monthly via direct deposit. Scale infinitely.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Dashboard Preview -->
+    <section class="section">
+        <div class="container">
+            <h2>Your Partner Dashboard</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">Real-time tracking of your referrals, conversions, and earnings</p>
+            
+            <div class="dashboard-preview">
+                <div class="dashboard-header">
+                    <h3>Partner Dashboard</h3>
+                    <a href="#" class="login-link" onclick="alert('Login functionality would be integrated with your auth system'); return false;">Login to Dashboard →</a>
+                </div>
+                <div class="dashboard-content">
+                    <div class="dashboard-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">847</div>
+                            <div class="stat-label">Total Referrals</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">342</div>
+                            <div class
+</body>
+</html>
