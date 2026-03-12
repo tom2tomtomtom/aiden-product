@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Program - Join Our Network</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+        
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #000;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-login {
+            background: transparent;
+            border: 1px solid #000;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .btn-login:hover {
+            background: #f5f5f5;
+        }
+        
+        .btn-signup {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .btn-signup:hover {
+            background: #333;
+        }
+        
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #000;
+            border: 2px solid #000;
+            padding: 0.9rem 1.9rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+        
+        .btn-secondary:hover {
+            background: #000;
+            color: #fff;
+        }
+        
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            border-color: #000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .commission-section {
+            background: #f9f9f9;
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+        }
+        
+        .commission-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .commission-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .commission-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .commission-table th {
+            background: #000;
+            color: #fff;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .commission-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .commission-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .terms-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .term-item {
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .term-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .term-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .dashboard-preview {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+        
+        .dashboard-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .dashboard-mockup {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 2rem;
+        }
+        
+        .dashboard-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #000;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .referrals-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .referrals-table th {
+            background: #f9f9f9;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e5e5e5;
+        }
+        
+        .referrals-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-converted {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-paid {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .faq-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .faq-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .faq-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .footer {
+            background: #000;
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .commission-table {
+                font-size: 0.9rem;
+            }
+            
+            .commission-table th,
+            .commission-table td {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">AffiliateHub</div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#commission">Commission</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="btn-login" onclick="showLogin()">Login</button>
+            <button class="btn-signup" onclick="showSignup()">Sign Up</button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Earn Money Promoting Our Product</h1>
+        <p>Join our affiliate program and start earning commissions on every successful referral. Simple, transparent, and rewarding.</p>
+        <div class="cta-buttons">
+            <button class="btn-primary" onclick="showSignup()">Apply Now</button>
+            <button class="btn-secondary" onclick="document.getElementById('faq').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Why Join Our
+</body>
+</html>
