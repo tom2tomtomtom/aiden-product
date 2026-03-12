@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Notion Setup - Get Your Template Installed in 30 Minutes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            color: #000;
+        }
+
+        .subheading {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            margin-bottom: 60px;
+        }
+
+        .hero-cta:hover {
+            background: #333;
+        }
+
+        .price-tag {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000;
+            margin-top: 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .included-item {
+            padding: 24px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #000;
+        }
+
+        .included-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .included-item p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .testimonial {
+            padding: 32px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #000;
+        }
+
+        .testimonial-quote {
+            font-size: 16px;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #000;
+            font-size: 14px;
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .faq-item {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .calendly-embed {
+            margin: 40px 0;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .calendly-embed p {
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 16px 48px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            background: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #999;
+            font-size: 13px;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .subheading {
+                font-size: 18px;
+            }
+
+            .included-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Get your template installed and customized in 30 minutes. No setup confusion.</h1>
+            <p class="subheading">Stop staring at a blank template wondering what to do next. We'll walk you through every step, customize it for your workflow, and answer all your questions in one focused call.</p>
+            <div class="price-tag">$89</div>
+            <a href="#booking" class="hero-cta">Book your setup call</a>
+        </header>
+
+        <section id="included">
+            <h2>What's Included</h2>
+            <div class="included-grid">
+                <div class="included-item">
+                    <h3>✓ Premium Template</h3>
+                    <p>Full access to the template with all features unlocked, ready to customize for your specific needs.</p>
+                </div>
+                <div class="included-item">
+                    <h3>✓ 30-Minute Setup Call</h3>
+                    <p>One-on-one video call where we install, configure, and customize everything specifically for you.</p>
+                </div>
+                <div class="included-item">
+                    <h3>✓ 7 Days of Email Support</h3>
+                    <p>Questions after the call? We're here. Email support for a full week to ensure you're confident using it.</p>
+                </div>
+                <div class="included-item">
+                    <h3>✓ Custom Walkthrough</h3>
+                    <p>We'll show you exactly how to use every feature, adapt it to your workflow, and answer all your questions live.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking">
+            <h2>Book Your Setup Call</h2>
+            <div class="calendly-embed">
+                <p>Choose a time that works for you. We'll handle the rest.</p>
+                <iframe src="https://calendly.com/your-calendly-link" width="100%" height="600" frameborder="0"></iframe>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-quote">"I was completely lost setting this up on my own. The 30-minute call saved me hours of frustration. They customized everything exactly how I needed it, and now I actually use the template every day."</p>
+                    <p class="testimonial-author">Sarah Chen</p>
+                    <p class="testimonial-role">Project Manager</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">"Worth every penny. I thought I could figure it out myself, but having someone walk me through it made all the difference. Plus the 7 days of support gave me confidence to actually implement it."</p>
+                    <p class="testimonial-author">Marcus Williams</p>
+                    <p class="testimonial-role">Freelance Designer</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">"The call was so helpful. They didn't just set it up—they explained WHY things were organized that way, which helped me understand how to adapt it for my team. Best investment in my workflow."</p>
+                    <p class="testimonial-author">Jessica Rodriguez</p>
+                    <p class="testimonial-role">Content Strategist</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">"I'm not tech-savvy at all, but they made everything so clear and easy. The follow-up email support was perfect for the questions I had after the call. Highly recommend."</p>
+                    <p class="testimonial-author">David Thompson</p>
+                    <p class="testimonial-role">Small Business Owner</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <p class="faq-question">Will I actually understand how to use it after the call?</p>
+                <p class="faq-answer">Yes. We walk through everything step-by-step, explain the logic behind how it's organized, and show you exactly how to adapt it to your workflow. You'll have the confidence to use it immediately, and we're available via email for a full week if you have questions.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">What if I need help after the 7-day support period?</p>
+                <p class="faq-answer">The 7 days of email support covers the critical period when you're learning. Most questions come up during that window. After that, you'll have a fully customized template that works for you, plus access to our community resources and documentation.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Can I reschedule my call if something comes up?</p>
+                <p class="faq-answer">Absolutely. Life happens. You can reschedule anytime through Calendly. We're flexible and want to make sure you have time to focus during the call.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">What if I'm not in the same timezone?</p>
+                <p class="faq-answer">We work with clients across multiple timezones. The Calendly scheduler shows all available times in your local timezone, so you can pick whatever works best for you.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Do I need any special software or experience?</p>
+                <p class="faq-answer">Nope. Just a Notion account (free or paid) and 30 minutes. We'll handle all the technical setup. No experience needed—we've worked with complete beginners and they do great.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">What if the template doesn't fit my needs?</p>
+                <p class="faq-answer">During the call, we customize it for your specific workflow. If after the call you realize it's not the right fit, we offer a full refund within 7 days. No questions asked.</p>
+            </div>
+        </section>
+
+        <section style="text-align: center; padding: 60px 0;">
+            <h2>Ready to get set up?</h2>
+            <p style="font-size: 18px; color: #666; margin-bottom: 30px;">Stop the setup confusion. Let's get you running in 30 minutes.</p>
+            <a href="#booking" class="cta-button">Book your setup call</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2024. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
