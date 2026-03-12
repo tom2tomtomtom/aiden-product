@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Tier - Unlock Priority Support & Custom Setup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #1a1a1a;
+            background: #fafafa;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .price-display {
+            font-size: 56px;
+            font-weight: 700;
+            margin: 30px 0 10px 0;
+        }
+        
+        .price-display span {
+            font-size: 24px;
+            opacity: 0.9;
+        }
+        
+        .price-subtext {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+        
+        .cta-primary {
+            background: white;
+            color: #667eea;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* Comparison Section */
+        .comparison {
+            margin: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e5e5e5;
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            background: #f8f8f8;
+            border-bottom: 2px solid #e5e5e5;
+            font-weight: 600;
+            padding: 20px;
+        }
+        
+        .table-header > div {
+            padding: 10px;
+        }
+        
+        .table-header > div:nth-child(2),
+        .table-header > div:nth-child(3) {
+            text-align: center;
+        }
+        
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            padding: 20px;
+            border-bottom: 1px solid #e5e5e5;
+            align-items: center;
+        }
+        
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        
+        .table-row:nth-child(even) {
+            background: #fafafa;
+        }
+        
+        .feature-name {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .table-row > div:nth-child(2),
+        .table-row > div:nth-child(3) {
+            text-align: center;
+        }
+        
+        .checkmark {
+            color: #10b981;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .x-mark {
+            color: #d1d5db;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .price-row {
+            background: #f0f4ff;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .price-row > div:nth-child(2),
+        .price-row > div:nth-child(3) {
+            color: #667eea;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            margin: 80px 0;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial {
+            padding: 30px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .testimonial-text {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #555;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+        
+        .testimonial-role {
+            font-size: 13px;
+            color: #999;
+            margin-top: 4px;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            margin: 80px 0;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #f8f8f8;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f0f0f0;
+        }
+        
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #666;
+            font-size: 15px;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 80px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-secondary {
+            background: white;
+            color: #667eea;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 80px;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .price-display {
+                font-size: 40px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .table-header > div:nth-child(2),
+            .table-header > div:nth-child(3),
+            .table-row > div:nth-child(2),
+            .table-row > div:nth-child(3) {
+                text-align: left;
+            }
+            
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">✨ Unlock Premium Features</div>
+            <h1>Premium Tier</h1>
+            <p>Get priority support, custom setup, and dedicated optimization to maximize your results</p>
+            <div class="price-display">$199<span>/month</span></div>
+            <div class="price-subtext">Everything in Standard, plus premium benefits</div>
+            <a href="https://gumroad.com/" class="cta-primary" onclick="trackConversion('hero-cta')">Upgrade to Premium</a>
+        </div>
+    </section>
+    
+    <!-- Comparison Table -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title">Compare Plans</h2>
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div>Feature</div>
+                    <div>Standard</div>
+                    <div>Premium</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">Monthly Price</div>
+                    <div>$89</div>
+                    <div>$199</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">Core Features</div>
+                    <div class="checkmark">✓</div>
+                    <div class="checkmark">✓</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">Email Support</div>
+                    <div class="checkmark">✓</div>
+                    <div class="checkmark">✓</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">Priority Email Support</div>
+                    <div class="x-mark">—</div>
+                    <div class="checkmark">✓</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">1-on-1 Setup Call</div>
+                    <div class="x-mark">—</div>
+                    <div class="checkmark">✓</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">Custom Template Modifications</div>
+                    <div class="x-mark">—</div>
+                    <div class="checkmark">✓</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">Monthly Optimization Review</div>
+                    <div class="x-mark">—</div>
+                    <div class="checkmark">✓</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">Advanced Analytics</div>
+                    <div class="x-mark">—</div>
+                    <div class="checkmark">✓</div>
+                </div>
+                <div class="table-row">
+                    <div class="feature-name">Dedicated Account Manager</div>
+                    <div class="x-mark">—</div>
+                    <div class="checkmark">
+</body>
+</html>
