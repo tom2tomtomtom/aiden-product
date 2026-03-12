@@ -1,222 +1,134 @@
-/**
- * Lightweight Revenue Analytics Tracker
- * Tracks revenue events, calculates metrics, persists to localStorage
- */
-
-class RevenueAnalytics {
-  constructor(config = {}) {
-    this.storageKey = config.storageKey || 'revenue_analytics';
-    this.events = this.loadEvents();
-    this.config = {
-      currencySymbol: config.currencySymbol || '$',
-      decimalPlaces: config.decimalPlaces || 2,
-      ...config
-    };
-  }
-
-  /**
-   * Track a revenue event
-   */
-  trackEvent(event) {
-    const normalizedEvent = {
-      id: `evt_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-      timestamp: new Date().toISOString(),
-      amount: parseFloat(event.amount) || 0,
-      currency: event.currency || 'USD',
-      source: event.source || 'unknown',
-      description: event.description || '',
-      metadata: event.metadata || {},
-      status: event.status || 'completed'
-    };
-
-    this.events.push(normalizedEvent);
-    this.saveEvents();
-    return normalizedEvent;
-  }
-
-  /**
-   * Get total revenue
-   */
-  getTotalRevenue(filters = {}) {
-    return this.getFilteredEvents(filters).reduce((sum, evt) => sum + evt.amount, 0);
-  }
-
-  /**
-   * Get revenue by source
-   */
-  getRevenueBySource(filters = {}) {
-    const filtered = this.getFilteredEvents(filters);
-    return filtered.reduce((acc, evt) => {
-      acc[evt.source] = (acc[evt.source] || 0) + evt.amount;
-      return acc;
-    }, {});
-  }
-
-  /**
-   * Get daily revenue
-   */
-  getDailyRevenue(filters = {}) {
-    const filtered = this.getFilteredEvents(filters);
-    return filtered.reduce((acc, evt) => {
-      const date = evt.timestamp.split('T')[0];
-      acc[date] = (acc[date] || 0) + evt.amount;
-      return acc;
-    }, {});
-  }
-
-  /**
-   * Get revenue metrics summary
-   */
-  getSummary(filters = {}) {
-    const filtered = this.getFilteredEvents(filters);
-    const total = filtered.reduce((sum, evt) => sum + evt.amount, 0);
-    const count = filtered.length;
-    const average = count > 0 ? total / count : 0;
-
-    return {
-      totalRevenue: this.formatCurrency(total),
-      eventCount: count,
-      averageValue: this.formatCurrency(average),
-      minValue: count > 0 ? this.formatCurrency(Math.min(...filtered.map(e => e.amount))) : '0',
-      maxValue: count > 0 ? this.formatCurrency(Math.max(...filtered.map(e => e.amount))) : '0',
-      sources: Object.keys(this.getRevenueBySource(filters)).length,
-      dateRange: count > 0 ? {
-        start: filtered[0].timestamp.split('T')[0],
-        end: filtered[filtered.length - 1].timestamp.split('T')[0]
-      } : null
-    };
-  }
-
-  /**
-   * Get filtered events
-   */
-  getFilteredEvents(filters = {}) {
-    let filtered = [...this.events];
-
-    if (filters.source) {
-      filtered = filtered.filter(e => e.source === filters.source);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revenue Analytics Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    if (filters.status) {
-      filtered = filtered.filter(e => e.status === filters.status);
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
     }
-
-    if (filters.startDate) {
-      filtered = filtered.filter(e => e.timestamp >= filters.startDate);
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
     }
-
-    if (filters.endDate) {
-      filtered = filtered.filter(e => e.timestamp <= filters.endDate);
+    .header {
+      color: white;
+      margin-bottom: 30px;
     }
-
-    if (filters.minAmount) {
-      filtered = filtered.filter(e => e.amount >= filters.minAmount);
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 5px;
     }
-
-    if (filters.maxAmount) {
-      filtered = filtered.filter(e => e.amount <= filters.maxAmount);
+    .header p {
+      opacity: 0.9;
+      font-size: 14px;
     }
-
-    return filtered.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-  }
-
-  /**
-   * Get all events
-   */
-  getAllEvents(limit = null) {
-    const events = [...this.events].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-    return limit ? events.slice(0, limit) : events;
-  }
-
-  /**
-   * Delete event by ID
-   */
-  deleteEvent(eventId) {
-    this.events = this.events.filter(e => e.id !== eventId);
-    this.saveEvents();
-    return true;
-  }
-
-  /**
-   * Clear all events
-   */
-  clearAllEvents() {
-    this.events = [];
-    this.saveEvents();
-    return true;
-  }
-
-  /**
-   * Export events as CSV
-   */
-  exportAsCSV() {
-    if (this.events.length === 0) return '';
-
-    const headers = ['ID', 'Timestamp', 'Amount', 'Currency', 'Source', 'Status', 'Description'];
-    const rows = this.events.map(e => [
-      e.id,
-      e.timestamp,
-      e.amount,
-      e.currency,
-      e.source,
-      e.status,
-      `"${e.description.replace(/"/g, '""')}"`
-    ]);
-
-    const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
-    return csv;
-  }
-
-  /**
-   * Import events from JSON
-   */
-  importFromJSON(jsonString) {
-    try {
-      const imported = JSON.parse(jsonString);
-      if (Array.isArray(imported)) {
-        this.events = [...this.events, ...imported];
-        this.saveEvents();
-        return { success: true, count: imported.length };
-      }
-      return { success: false, error: 'Invalid JSON format' };
-    } catch (e) {
-      return { success: false, error: e.message };
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
     }
-  }
-
-  /**
-   * Format currency
-   */
-  formatCurrency(amount) {
-    return `${this.config.currencySymbol}${amount.toFixed(this.config.decimalPlaces)}`;
-  }
-
-  /**
-   * Save events to localStorage
-   */
-  saveEvents() {
-    try {
-      localStorage.setItem(this.storageKey, JSON.stringify(this.events));
-    } catch (e) {
-      console.error('Failed to save analytics events:', e);
+    .metric-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-  }
-
-  /**
-   * Load events from localStorage
-   */
-  loadEvents() {
-    try {
-      const stored = localStorage.getItem(this.storageKey);
-      return stored ? JSON.parse(stored) : [];
-    } catch (e) {
-      console.error('Failed to load analytics events:', e);
-      return [];
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
     }
-  }
-}
-
-// Export for use in modules
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = RevenueAnalytics;
-}
+    .metric-label {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .metric-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    .metric-change {
+      font-size: 12px;
+      color: #999;
+    }
+    .metric-change.positive {
+      color: #10b981;
+    }
+    .metric-change.negative {
+      color: #ef4444;
+    }
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .chart-container {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .chart-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 16px;
+    }
+    .loading {
+      text-align: center;
+      color: white;
+      font-size: 18px;
+      padding: 40px;
+    }
+    .error {
+      background: #fee;
+      color: #c33;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .refresh-btn {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .refresh-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .refresh-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1
+</body>
+</html>
