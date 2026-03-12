@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Simple, Transparent Plans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            font-size: 20px;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #3182ce;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: #3182ce;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tier-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+
+        .tier-description {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .price {
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .price-currency {
+            font-size: 24px;
+            vertical-align: super;
+        }
+
+        .price-period {
+            font-size: 16px;
+            color: #718096;
+            margin-left: 8px;
+        }
+
+        .price-note {
+            font-size: 13px;
+            color: #a0aec0;
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            font-size: 15px;
+            color: #4a5568;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #48bb78;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .features-list li.disabled {
+            color: #cbd5e0;
+        }
+
+        .features-list li.disabled:before {
+            content: "–";
+            color: #cbd5e0;
+        }
+
+        .cta-button {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cta-primary {
+            background: #3182ce;
+            color: white;
+        }
+
+        .cta-primary:hover {
+            background: #2c5aa0;
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.4);
+        }
+
+        .cta-secondary {
+            background: #f7fafc;
+            color: #3182ce;
+            border: 2px solid #3182ce;
+        }
+
+        .cta-secondary:hover {
+            background: #edf2f7;
+        }
+
+        .faq-section {
+            background: white;
+            border-radius: 12px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .faq-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .faq-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .comparison-table {
+            margin-top: 60px;
+            overflow-x: auto;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-8px);
+            }
+
+            .pricing-grid {
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Simple, Transparent Pricing</h1>
+            <p>Choose the plan that fits your needs. Upgrade or downgrade anytime, no questions asked.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Starter Tier -->
+            <div class="pricing-card">
+                <div class="tier-name">Starter</div>
+                <p class="tier-description">Perfect for getting started</p>
+                <div class="price">
+                    <span class="price-currency">$</span><span class="price-amount">29</span><span class="price-period">/month</span>
+                </div>
+                <p class="price-note">Billed monthly. Cancel anytime.</p>
+                <ul class="features-list">
+                    <li>Up to 1,000 requests/month</li>
+                    <li>Basic analytics dashboard</li>
+                    <li>Email support</li>
+                    <li>1 team member</li>
+                    <li class="disabled">Advanced integrations</li>
+                    <li class="disabled">Priority support</li>
+                </ul>
+                <button class="cta-button cta-secondary">Get Started</button>
+            </div>
+
+            <!-- Professional Tier (Featured) -->
+            <div class="pricing-card featured">
+                <div class="badge">Most Popular</div>
+                <div class="tier-name">Professional</div>
+                <p class="tier-description">For growing teams</p>
+                <div class="price">
+                    <span class="price-currency">$</span><span class="price-amount">79</span><span class="price-period">/month</span>
+                </div>
+                <p class="price-note">Billed monthly. Cancel anytime.</p>
+                <ul class="features-list">
+                    <li>Up to 50,000 requests/month</li>
+                    <li>Advanced analytics & insights</li>
+                    <li>Priority email & chat support</li>
+                    <li>Up to 5 team members</li>
+                    <li>Webhook integrations</li>
+                    <li class="disabled">Dedicated account manager</li>
+                </ul>
+                <button class="cta-button cta-primary">Start Free Trial</button>
+            </div>
+
+            <!-- Enterprise Tier -->
+            <div class="pricing-card">
+                <div class="tier-name">Enterprise</div>
+                <p class="tier-description">For large organizations</p>
+                <div class="price">
+                    <span class="price-currency">$</span><span class="price-amount">199</span><span class="price-period">/month</span>
+                </div>
+                <p class="price-note">Billed monthly. Custom terms available.</p>
+                <ul class="features-list">
+                    <li>Unlimited requests</li>
+                    <li>Real-time analytics & reporting</li>
+                    <li>24/7 phone & dedicated support</li>
+                    <li>Unlimited team members</li>
+                    <li>Advanced integrations & APIs</li>
+                    <li>Dedicated account manager</li>
+                </ul>
+                <button class="cta-button cta-secondary">Contact Sales</button>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Can I change plans anytime?</h3>
+                    <p>Yes. Upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you offer annual billing?</h3>
+                    <p>Yes. Annual plans are available at a 20% discount. Contact our sales team for details.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What payment methods do you accept?</h3>
+                    <p>We accept all major credit cards, PayPal, and wire transfers for Enterprise customers.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there a free trial?</h3>
+                    <p>Yes. All plans include a 14-day free trial. No credit card required to start.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I need custom features?</h3>
+                    <p>Enterprise customers can request custom features and integrations. Contact our sales team to discuss.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you offer refunds?</h3>
+                    <p>We offer a 30-day money-back guarantee. If you're not satisfied, we'll refund your payment in full.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
