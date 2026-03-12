@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why We Built This | Our Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafbfc;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero .subheading {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #e8eef5;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #2c3e50;
+        }
+
+        /* The Problem Section */
+        .problem-section {
+            background: white;
+        }
+
+        .problem-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #34495e;
+            max-width: 700px;
+        }
+
+        .problem-text p {
+            margin-bottom: 16px;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .mission-statement {
+            font-size: 24px;
+            font-weight: 600;
+            color: #667eea;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Customer Stories */
+        .stories-section {
+            background: white;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .story-card {
+            background: #f8f9fa;
+            padding: 32px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.12);
+        }
+
+        .story-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .story-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            margin-right: 16px;
+        }
+
+        .story-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .story-role {
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        .story-problem {
+            font-size: 14px;
+            color: #34495e;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .story-problem strong {
+            color: #e74c3c;
+        }
+
+        .story-solution {
+            font-size: 14px;
+            color: #34495e;
+            margin-bottom: 16px;
+        }
+
+        .story-quote {
+            font-size: 15px;
+            font-style: italic;
+            color: #667eea;
+            border-left: 3px solid #667eea;
+            padding-left: 16px;
+            margin-top: 16px;
+        }
+
+        /* Brand Narrative */
+        .narrative-section {
+            background: white;
+        }
+
+        .narrative-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #34495e;
+            max-width: 800px;
+        }
+
+        .narrative-text p {
+            margin-bottom: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero .subheading {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Why We Built This</h1>
+            <p class="subheading">We watched talented people struggle with the same problem over and over. They had the skills, the drive, the vision—but they were drowning in the wrong work. So we built something to change that. This is our story, and it's really your story.</p>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2>The Problem We Saw</h2>
+            <div class="problem-text">
+                <p>We started noticing a pattern. Brilliant creators, strategists, and builders were spending 60% of their time on administrative work. Not because they wanted to. Because there was no alternative.</p>
+                <p>They'd spend hours on repetitive tasks—organizing feedback, managing versions, coordinating between teams, wrestling with tools that didn't talk to each other. By the time they finished, the creative energy was gone. The insight that could have changed everything got buried under logistics.</p>
+                <p>The worst part? They felt guilty about it. Like they should be able to "just manage it better." But the problem wasn't their productivity. The problem was that the tools made it impossible to think clearly while doing the work that mattered.</p>
+                <p>We kept hearing the same words: "I just want to focus." Not "I want to work faster." Not "I want to do more." Just focus. Uninterrupted. Deep. Real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p class="mission-statement">We're building the thinking space that lets brilliant work happen. Where the tools disappear and only the thinking remains.</p>
+        </div>
+    </section>
+
+    <!-- Customer Stories -->
+    <section class="stories-section">
+        <div class="container">
+            <h2>How It's Changed Things</h2>
+            <div class="stories-grid">
+                <!-- Story 1 -->
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">S</div>
+                        <div>
+                            <div class="story-name">Sarah Chen</div>
+                            <div class="story-role">Creative Director</div>
+                        </div>
+                    </div>
+                    <div class="story-problem"><strong>The Problem:</strong> Spent 3 hours daily switching between Slack, email, design tools, and feedback documents. Lost track of which version was current.</div>
+                    <div class="story-solution">Now everything lives in one place. Feedback, versions, decisions—all connected. She reclaimed 15 hours a week.</div>
+                    <div class="story-quote">"I can actually think again. That sounds dramatic, but it's true. The cognitive load just vanished."</div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">M</div>
+                        <div>
+                            <div class="story-name">Marcus Rodriguez</div>
+                            <div class="story-role">Product Manager</div>
+                        </div>
+                    </div>
+                    <div class="story-problem"><strong>The Problem:</strong> Spent more time explaining decisions to stakeholders than making them. Every decision required 5 emails and 2 meetings.</div>
+                    <div class="story-solution">Built a shared thinking space where decisions are visible as they happen. Stakeholders see the reasoning, not just the conclusion.</div>
+                    <div class="story-quote">"Alignment happens automatically now. We're not debating decisions—we're building on them."</div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">J</div>
+                        <div>
+                            <div class="story-name">James Liu</div>
+                            <div class="story-role">Startup Founder</div>
+                        </div>
+                    </div>
+                    <div class="story-problem"><strong>The Problem:</strong> As a solo founder, juggled strategy, execution, and communication. Felt like he was always context-switching, never fully present in any one thing.</div>
+                    <div class="story-solution">Created a single workspace where strategy, execution, and team communication live together. Context stays intact.</div>
+                    <div class="story-quote">"I went from feeling scattered to feeling focused. That's not a small thing when you're building something from nothing."</div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">E</div>
+                        <div>
+                            <div class="story-name">Elena Vasquez</div>
+                            <div class="story-role">Design Lead</div>
+                        </div>
+                    </div>
+                    <div class="story-problem"><strong>The Problem:</strong> Design feedback came from everywhere—comments, emails, Slack threads, in-person conversations. Impossible to track what actually mattered.</div>
+                    <div class="story-solution">Feedback is now threaded, prioritized, and connected to the work. She can see patterns instead of drowning in noise.</div>
+                    <div class="story-quote">"It's not about getting more feedback. It's about getting feedback that actually helps me think better."</div>
+                </div>
+
+                <!-- Story 5 -->
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">D</div>
+                        <div>
+                            <div class="story-name">David Park</div>
+                            <div class="story-role">Engineering Manager</div>
+                        </div>
+                    </div>
+                    <div class="story-problem"><strong>The Problem:</strong> Technical decisions got lost in Slack. Six months later, no one remembered why something was built a certain way.</div>
+                    <div class="story-solution">Decisions are now documented as they're made, with context and reasoning. New team members onboard 3x faster.</div>
+                    <div class="story-quote">"We finally have institutional memory. It's like we're learning from ourselves instead of repeating ourselves."</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Narrative -->
+    <section class="narrative-section">
+        <div class="container">
+            <h2>The Full Story</h2>
+            <div class="narrative-text">
+                <p>Three years ago, we were all working at different companies, and we kept running into the same wall. We'd be in a meeting where someone would say "Wait, didn't we already decide this?" And someone else would say "Yeah, but that was before we realized X." And someone else would dig through Slack for 20 minutes trying to find the original decision.</p>
+
+                <p>We realized the problem wasn't that people weren't thinking clearly. It was that the thinking was scattered. A decision made in a meeting. The reasoning explained in an email. The update shared in Slack. The implications discussed in a comment thread. By the time you tried to reconstruct what actually happened, half the context was gone.</p>
+
+                <p>So we started building something different. Not another tool to add to the pile. Something that would let thinking happen in one place—where the decision, the reasoning, the feedback, and the evolution all lived together. Where you could see not just what was decided, but why. Not just what changed, but what that meant.</p>
+
+                <p>We called it a thinking space because that's what it is. It's not a project management tool. It's not a communication platform. It's the place where your best thinking happens, and everything you need to think clearly
+</body>
+</html>
