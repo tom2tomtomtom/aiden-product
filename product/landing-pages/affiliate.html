@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Program - Earn 20% Commission</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: white;
+            padding: 80px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #000;
+        }
+
+        .section h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .commission-table {
+            margin-top: 40px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #f5f5f5;
+            font-weight: 600;
+            color: #000;
+        }
+
+        tr:hover {
+            background: #fafafa;
+        }
+
+        .form-section {
+            background: #f9f9f9;
+            padding: 60px 0;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #000;
+            font-size: 14px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .faq {
+            margin-top: 60px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: #f9f9f9;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: #f0f0f0;
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            color: #667eea;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            background: white;
+            display: none;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #000;
+            font-size: 14px;
+        }
+
+        .testimonial-role {
+            color: #999;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .stat {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">AffiliateHub</div>
+            <nav>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#commission">Commission</a>
+                <a href="#signup">Sign Up</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Turn Your Audience Into Revenue</h1>
+            <p>Join our affiliate program and earn 20% commission on every referral. No limits, no caps, just pure earning potential.</p>
+            <a href="#signup" class="cta-button">Apply Now</a>
+        </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="how-it-works">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Sign Up</h3>
+                    <p>Apply for the affiliate program with your name, email, and audience details. We approve most applications within 24 hours.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Your Link</h3>
+                    <p>Receive your unique referral link. Share it with your audience via email, social media, or your website.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Track Earnings</h3>
+                    <p>Watch clicks, conversions, and earnings in real-time via your affiliate dashboard. Full transparency, always.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Get Paid</h3>
+                    <p>Earn 20% commission on every sale. Payouts happen monthly via Gumroad. Minimum payout: $10.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="commission">
+        <div class="container">
+            <h2>Commission Structure & Examples</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 40px;">You earn 20% on every sale, with no caps or limits. Here's what real earnings look like:</p>
+            
+            <div class="commission-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sales Per Month</th>
+                            <th>Avg Sale Price</th>
+                            <th>Your Commission</th>
+                            <th>Monthly Earnings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5 sales</td>
+                            <td>$99</td>
+                            <td>20% ($19.80)</td>
+                            <td>$99</td>
+                        </tr>
+                        <tr>
+                            <td>10 sales</td>
+                            <td>$99</td>
+                            <td>20% ($19.80)</td>
+                            <td>$198</td>
+                        </tr>
+                        <tr>
+                            <td>25 sales</td>
+                            <td>$99</td>
+                            <td>20% ($19.80)</td>
+                            <td>$495</td>
+                        </tr>
+                        <tr>
+                            <td>50 sales</td>
+                            <td>$99</td>
+                            <td>20% ($19.80)</td>
+                            <td>$990</td>
+                        </tr>
+                        <tr>
+                            <td>100+ sales</td>
+                            <td>$99</td>
+                            <td>20% ($19.80)</td>
+                            <td>$1,980+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">20%</div>
+                    <div class="stat-label">Commission Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$10</div>
+                    <div class="stat-label">Minimum Payout</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Monthly</div>
+                    <div class="stat-label">Payment Frequency</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Lifetime</div>
+                    <div class="stat-label">Cookie Duration</div>
+
+</body>
+</html>
