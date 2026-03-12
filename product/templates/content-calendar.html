@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90-Day Content Calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 32px;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #718096;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+        }
+        .metric-card h3 {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .metric-card .value {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .calendar-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .calendar-section h2 {
+            font-size: 24px;
+            color: #1a202c;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .month-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .month-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .month-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .week-list {
+            padding: 20px;
+        }
+        .week {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .week:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .week-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .content-item {
+            background: #f7fafc;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+            font-size: 13px;
+        }
+        .content-item.blog {
+            border-left-color: #48bb78;
+        }
+        .content-item.video {
+            border-left-color: #ed8936;
+        }
+        .content-item.email {
+            border-left-color: #9f7aea;
+        }
+        .content-item.social {
+            border-left-color: #3182ce;
+        }
+        .content-type {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-right: 8px;
+            margin-bottom: 6px;
+        }
+        .content-type.blog {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        .content-type.video {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        .content-type.email {
+            background: #e9d8fd;
+            color: #44337a;
+        }
+        .content-type.social {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+        .content-title {
+            color: #2d3748;
+            font-weight: 500;
+            margin-top: 6px;
+        }
+        .pain-points {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .pain-points h2 {
+            font-size: 24px;
+            color: #1a202c;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .pain-point-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .pain-point-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .pain-point-card h3 {
+            color: #2d3748;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        .pain-point-card p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .content-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .topic-tag {
+            background: white;
+            border: 1px solid #cbd5e0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #4a5568;
+        }
+        .success-metrics {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .success-metrics h2 {
+            font-size: 24px;
+            color: #1a202c;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .metrics-table th {
+            background: #f7fafc;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #2d3748;
+            border-bottom: 2px solid #e2e8f0;
+            font-size: 14px;
+        }
+        .metrics-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+            font-size: 14px;
+        }
+        .metrics-table tr:hover {
+            background: #f7fafc;
+        }
+        .target {
+            font-weight: 600;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>90-Day Content Calendar</h1>
+            <p>Strategic content roadmap targeting customer pain points with 3 pieces per week across multiple formats. Designed to drive traffic, engagement, and conversions.</p>
+            <div class="metrics">
+                <div class="metric-card">
+                    <h3>Publishing Frequency</h3>
+                    <div class="value">3/week</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Total Content Pieces</h3>
+                    <div class="value">39</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Content Types</h3>
+                    <div class="value">4</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Timeline</h3>
+                    <div class="value">90 Days</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pain-points">
+            <h2>Customer Pain Points & Content Strategy</h2>
+            <div class="pain-point-grid">
+                <div class="pain-point-card">
+                    <h3>🎯 Time Management</h3>
+                    <p>Customers struggle to balance multiple projects and deadlines without clear prioritization systems.</p>
+                    <div class="content-topics">
+                        <span class="topic-tag">Productivity</span>
+                        <span class="topic-tag">Workflows</span>
+                        <span class="topic-tag">Time Blocking</span>
+                    </div>
+                </div>
+                <div class="pain-point-card">
+                    <h3>💰 Cost Optimization</h3>
+                    <p>Teams overspend on tools and resources due to poor visibility into actual usage and ROI.</p>
+                    <div class="content-topics">
+                        <span class="topic-tag">Budget</span>
+                        <span class="topic-tag">ROI</span>
+                        <span class="topic-tag">Cost Reduction</span>
+                    </div>
+                </div>
+                <div class="pain-point-card">
+                    <h3>👥 Team Collaboration</h3>
+                    <p>Distributed teams lack visibility into what others are doing, causing duplicated work and miscommunication.</p>
+                    <div class="content-topics">
+                        <span class="topic-tag">Communication</span>
+                        <span class="topic-tag">Remote Work</span>
+                        <span class="topic-tag">Transparency</span>
+                    </div>
+                </div>
+                <div class="pain-point-card">
+                    <h3>📊 Data Visibility</h3>
+                    <p>Leaders can't see real-time progress, making it hard to make informed decisions and course corrections.</p>
+                    <div class="content-topics">
+                        <span class="topic-tag">Analytics</span>
+                        <span class="topic-tag">Dashboards</span>
+                        <span class="topic-tag">Reporting</span>
+                    </div>
+                </div>
+                <div class="pain-point-card">
+                    <h3>🔄 Process Inefficiency</h3>
+                    <p>Manual processes waste time and introduce errors, slowing down delivery and increasing frustration.</p>
+                    <div class="content-topics">
+                        <span class="topic-tag">Automation</span>
+                        <span class="topic-tag">Efficiency</span>
+                        <span class="topic-tag">Scaling</span>
+                    </div>
+                </div>
+                <div class="pain-point-card">
+                    <h3>🎓 Skill Gaps</h3>
+                    <p>Teams lack knowledge about best practices, modern tools, and methodologies needed to compete effectively.</p>
+                    <div class="content-topics">
+                        <span class="topic-tag">Training</span>
+                        <span class="topic-tag">Best Practices</span>
+                        <span class="topic-tag">Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="calendar-section">
+            <h2>Month 1: Foundation & Awareness</h2>
+            <div class="month-grid">
+                <div class="month-card">
+                    <div class="month-header">Week 1-2: Problem Validation</div>
+                    <div class="week-list">
+                        <div class="week">
+                            <div class="week-title">Week 1</div>
+                            <div class="content-item blog">
+                                <span class="content-type blog">Blog</span>
+                                <div class="content-title">The Hidden Cost of Invisible Work: Why Teams Fail to Deliver</div>
+                            </div>
+                            <div class="content-item social">
+                                <span class="content-type social">Social</span>
+                                <div class="content-title">Thread: 5 Signs Your Team Lacks Visibility</div>
+                            </div>
+                            <div class="content-item email">
+                                <span class="content-type email">Email</span>
+                                <div class="content-title">Are You Losing Time to Invisible Bottlenecks?</div>
+                            </div>
+                        </div>
+                        <div class="week">
+                            <div class="week-title">Week 2</div>
+                            <div class="content-item video">
+                                <span class="content-type video">Video</span>
+                                <div class="content-title">3-Min: How Distributed Teams Lose $50K/Year to Duplicated Work</div>
+                            </div>
+                            <div class="content-item blog">
+                                <span class="content-type blog">Blog</span>
+                                <div class="content-title">Transparency Metrics: What Leaders Should Actually Track</div>
+                            </div>
+                            <div class="content-item social">
+                                <span class="content-type social">Social</span>
+                                <div class="content-title">Stat: 67% of Teams Don't Know What Their Teammates Are Working On</div>
+                            </div>
+                        </div>\
+</body>
+</html>
