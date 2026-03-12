@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objection Killer - Turn "No" Into "Yes"</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+        }
+        
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #000;
+        }
+        
+        .cta-button {
+            background: #000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: #333;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero .subheading {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.2s;
+            margin-bottom: 60px;
+        }
+        
+        .hero-cta:hover {
+            background: #333;
+        }
+        
+        .hero-visual {
+            background: #f5f5f5;
+            padding: 60px 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .hero-visual p {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 42px;
+            margin-bottom: 16px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .objection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .objection-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #000;
+        }
+        
+        .objection-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .objection-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+        }
+        
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .solution-text h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .solution-text p {
+            color: #666;
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .solution-visual {
+            background: #f5f5f5;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            color: #999;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background: #fafafa;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-item {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .feature-item p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .testimonial-text {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 14px;
+            color: #000;
+        }
+        
+        .testimonial-title {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 80px 0;
+            text-align: center;
+            background: #000;
+            color: white;
+        }
+        
+        .final-cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .final-cta .cta-button {
+            background: white;
+            color: #000;
+            padding: 16px 40px;
+            font-weight: 600;
+        }
+        
+        .final-cta .cta-button:hover {
+            background: #f0f0f0;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #f0f0f0;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .solution-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav {
+                display: flex;
+                gap: 20px;
+            }
+            
+            nav a {
+                margin-left: 0;
+            }
+            
+            .section-header h2 {
+                font-size: 32px;
+            }
+            
+            .final-cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Objection Killer</div>
+                <nav>
+                    <a href="#problem">The Problem</a>
+                    <a href="#solution">The Solution</a>
+                    <a href="#features">Features</a>
+                    <a href="#proof">Results</a>
+                </nav>
+                <button class="cta-button">Get Started</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Every "No" Is Just A "Yes" You Haven't Unlocked Yet</h1>
+            <p class="subheading">Stop losing deals to objections. Start converting them with precision responses that address the real concern behind every hesitation.</p>
+            <a href="#" class="hero-cta">Start Converting Objections</a>
+            <div class="hero-visual">
+                <p>[Hero image: Sales rep confidently handling objection]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Objections That Kill Deals</h2>
+                <p>These aren't price objections. These are trust objections. And you're probably answering them wrong.</p>
+            </div>
+            <div class="objection-grid">
+                <div class="objection-card">
+                    <h3>"It's Too Expensive"</h3>
+                    <p>They're not saying the price is high. They're saying they don't see enough value yet. Your ROI story is weak.</p>
+                </div>
+                <div class="objection-card">
+                    <h3>"We Need To Think About It"</h3>
+                    <p>Translation: "I'm not convinced this is urgent." You've created interest, not urgency. The window closes while they think.</p>
+                </div>
+                <div class="objection-card">
+                    <h3>"Your Competitor Does It Better"</h3>
+                    <p>They've done research but haven't understood your differentiation. You're playing their game instead of your game.</p>
+                </div>
+                <div class="objection-card">
+                    <h3>"We Don't Have Budget Right Now"</h3>
+                    <p>Budget exists for urgent problems. You haven't made this feel urgent enough to reallocate resources.</p>
+                </div>
+                <div class="objection-card">
+                    <h3>"This Doesn't Fit Our Workflow"</h3>
+                    <p>They're protecting their current system. You haven't shown the pain of staying where they are.</p>
+                </div>
+                <div class="objection-card">
+                    <h3>"We're Happy With What We Have"</h3>
+                    <p>Contentment is the hardest objection. You need to create productive dissatisfaction, not attack their current choice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>The Objection Framework That Works</h2>
+                    <p>Every objection has a pattern. Every pattern has a counter-pattern. We've mapped them all.</p>
+                    <p><strong>Step 1: Acknowledge</strong> - Show you heard the real concern, not just the words.</p>
+                    <p><strong>Step 2: Reframe</strong> - Shift the conversation from their frame to your frame.</p>
+                    <p><strong>Step 3: Prove</strong> - Provide specific evidence that addresses the actual doubt.</p>
+                    <p><strong>Step 4: Move</strong> - Get commitment on the next step before they have time to retreat.</p>
+                </div>
+                <div class="solution-visual">
+                    <p>[Visual: Framework diagram showing the 4-step process]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>What You Get</h2>
+                <p>Everything you need to turn hesitation into conviction</p>
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📋</div>
+                    <h3>Objection Library</h3>
+                    <p>50+ real objections with proven counter-responses. Searchable. Sortable. Deployable.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Response Templates</h3>
+                    <p>Copy-paste ready responses that work. Customize for your product in 30 seconds.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h3>Conversion Analytics</h3>
+                    <p>Track which responses work best for your team. Learn from what converts.</p>
+                </div>
+                <div class="feature-item">\
+</body>
+</html>
